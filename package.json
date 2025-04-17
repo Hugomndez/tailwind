@@ -2,6 +2,11 @@
   "name": "tailwind",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10",
+    "yarn": "please use npm"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
