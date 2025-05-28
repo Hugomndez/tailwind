@@ -6,9 +6,28 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = defineConfig([
+  {
+    ignores: [
+      '**/.next',
+      '**/.cache',
+      '**/package-lock.json',
+      '**/public',
+      '**/node_modules',
+      '**/next-env.d.ts',
+      '**/yarn.lock',
+    ],
+  },
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
     rules: {
+      'no-undef': 'error',
+      'no-unused-vars': 'off',
+      'no-console': [
+        'error',
+        {
+          allow: ['debug', 'info', 'warn', 'error'],
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -30,15 +49,6 @@ const eslintConfig = defineConfig([
         },
       ],
     },
-    ignorePatterns: [
-      '**/.next',
-      '**/.cache',
-      '**/package-lock.json',
-      '**/public',
-      '**/node_modules',
-      '**/next-env.d.ts',
-      '**/yarn.lock',
-    ],
   }),
 ]);
 

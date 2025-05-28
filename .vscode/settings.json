@@ -1,10 +1,14 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
+  "typescript.format.enable": false,
+  "typescript.validate.enable": false,
+  "eslint.format.enable": true,
+  "eslint.validate": ["javascript", "typescript"],
   "editor.quickSuggestions": { "strings": "on" },
   "files.associations": { "*.css": "tailwindcss" }
 }
