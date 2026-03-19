@@ -3,35 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=22",
-    "npm": ">=10",
+    "node": ">=24",
+    "npm": ">=11",
     "yarn": "please use npm"
   },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "prettier": "prettier --write .",
     "prepare": "husky"
   },
   "dependencies": {
-    "next": "^15.4.0-canary.53",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "next": "16.2.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/eslintrc": "3",
     "@tailwindcss/postcss": "4",
-    "@types/node": "22",
-    "@types/react": "19",
-    "@types/react-dom": "19",
+    "@types/node": "^25.5.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
-    "babel-plugin-react-compiler": "^19.1.0-rc.2",
+    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "9",
-    "eslint-config-next": "15.3.2",
+    "eslint-config-next": "16.2.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "husky": "^9.1.7",
@@ -39,5 +38,9 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3"
   }
 }

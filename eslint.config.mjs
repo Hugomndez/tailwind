@@ -1,31 +1,20 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import { defineConfig } from 'eslint/config';
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
+import prettier from 'eslint-config-prettier/flat';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 const eslintConfig = defineConfig([
-  ...compat.config({
-    extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'public/**', 'next-env.d.ts', 'yarn.lock']),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
+  {
     rules: {
-      'no-console': [
-        'warn',
-        {
-          allow: ['debug', 'info', 'warn', 'error'],
-        },
-      ],
-      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
-          args: 'all',
-          argsIgnorePattern: '^_',
-          caughtErrors: 'all',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
           varsIgnorePattern: '^_',
-          ignoreRestSiblings: true,
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
         },
       ],
       '@typescript-eslint/no-explicit-any': 'error',
@@ -37,18 +26,8 @@ const eslintConfig = defineConfig([
         },
       ],
     },
-  }),
-  {
-    ignores: [
-      '**/.next',
-      '**/.cache',
-      '**/package-lock.json',
-      '**/public',
-      '**/node_modules',
-      '**/next-env.d.ts',
-      '**/yarn.lock',
-    ],
   },
+  prettier,
 ]);
 
 export default eslintConfig;
